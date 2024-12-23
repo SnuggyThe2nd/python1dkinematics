@@ -33,8 +33,30 @@ while notanswered == True:
 
     match equationtype:
         case 1:
-            choice1 == True
-            break
+            print("Please Choose Which Varialbe You Want To Solve For: ")
+            print("1. Initial Velocity")
+            print("2. Acceleration")
+            print("3. Time")
+            print("4. Displacement Of X:")
+            whattosolvefor = int(input("Please Type Corresponding Number Here: ")
+            
+
+# Matches User Input To What Formula They Want To Use
+            match whattosolvefor:
+                
+# Formula For No Final Velocity, deltax = vi * t + .5 * a * t^2
+                case 1:
+                    accel = float(input("Please Input Value Of Acceleraton Here: "))
+                    time = float(input("Please Input Value Of Time Here: "))
+                    deltax = float(input("Please Input Value Of Displacement Of X Here:"))
+                case 2:
+
+                case 3:
+
+                case 4:
+
+
+
         case 2:
             choice2 == True
             break
@@ -45,7 +67,7 @@ while notanswered == True:
             choice4 == True
             break
         case 5:
-            print("Please Choose Which Value You Want To Solve For:")
+            print("Please Choose Which Variable You Want To Solve For:")
             print("1. Final Velocity")
             print("2. Initial Velocity")
             print("3. Acceleration")
@@ -62,7 +84,7 @@ while notanswered == True:
                     time = float(input("Please Input Time Here: "))
                     finalanswer = vi + (accel * time)
                     print("Final Velocity Is Equal To: " , finalanswer)
-
+                    notanswered = False
 # Solves For Initial Velocity Without Delta X 
 
                 case 2:
@@ -71,7 +93,7 @@ while notanswered == True:
                     time = float(input("Please Input Your Time Here: "))
                     finalanswer = vf / (accel * time)
                     print("Initial Velocity Is Equal To: ", finalanswer)
-
+                    notanswered = False
 # Solves For Acceleration Without Delta X 
 
                 case 3:
@@ -80,7 +102,7 @@ while notanswered == True:
                     vi = float(input("Please Input Initial Velocity Here: "))
                     finalanswer = (vf / time) - vi
                     print(finalanswer)
-
+                    notanswered = False
 # Solves For Time Without Delta X 
 
                 case 4:
@@ -89,7 +111,7 @@ while notanswered == True:
                     vi = float(input("Please Input Your Initial Velocity Here"))
                     finalanswer = (vf / accel) - vi
                     print(finalanswer)
-
+                    notanswered = False
         case _:
             print("Please just input something brother man")
             
