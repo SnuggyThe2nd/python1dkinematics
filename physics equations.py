@@ -17,6 +17,8 @@ notanswered = True
 whattosolvefor = int
 finalanswer = int
 
+half = .5
+
 # Begins Loop For Choosing Which Formula To Use 
 
 while notanswered == True:
@@ -38,7 +40,7 @@ while notanswered == True:
             print("2. Acceleration")
             print("3. Time")
             print("4. Displacement Of X:")
-            whattosolvefor = int(input("Please Type Corresponding Number Here: ")
+            whattosolvefor = int(input("Please Type Corresponding Number Here: "))
             
 
 # Matches User Input To What Formula They Want To Use
@@ -49,12 +51,30 @@ while notanswered == True:
                     accel = float(input("Please Input Value Of Acceleraton Here: "))
                     time = float(input("Please Input Value Of Time Here: "))
                     deltax = float(input("Please Input Value Of Displacement Of X Here:"))
+                    finalanswer = (deltax // time) - (half * accel * (time * time))
+                    print("Initial Velocity Is Equal To: " , finalanswer)
+                    notanswered = False
                 case 2:
-
+                    time = float(input("Please Input Value Of Time Here: "))
+                    deltax = float(input("Please Input Value Of Displacement Of X Here:"))
+                    vi = float(input("Please Input Your Initial Velocity Here: ")) 
+                    finalanswer = two ((deltax - vi) // time)
+                    print("Acceleration Is Equal To: " , finalanswer)
+                    notanswered = False
                 case 3:
-
+                    accel = float(input("Please Input Value Of Acceleraton Here: "))
+                    vi = float(input("Please Input Your Initial Velocity Here: ")) 
+                    deltax = float(input("Please Input Value Of Displacement Of X Here:"))
+                    finalanswer = ((deltax / (half * accel)) - vi)
+                    print("Time Is Equal To: " , finalanswer)
+                    notanswered = False
                 case 4:
-
+                    time = float(input("Please Input Value Of Time Here: "))
+                    vi = float(input("Please Input Your Initial Velocity Here: ")) 
+                    accel = float(input("Please Input Value Of Acceleraton Here: "))
+                    finalanswer = 2 * ((deltax / (time * time)) - (vi * time))
+                    print("Displacement Of X Is Equal To" , finalanswer)
+                    notanswered = False
 
 
         case 2:
