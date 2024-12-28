@@ -1,6 +1,5 @@
 # 1-D Kinematics Physics Equations Solver
-
-
+import math
 # Defines All Variables Used In Program Before Usage
 vf = float
 vi = float
@@ -15,12 +14,11 @@ choice4 = bool
 choice5 = bool
 notanswered = True
 whattosolvefor = int
-finalanswer = int
-
+finalanswerbuffer = float
+finalanswer = float
+vfbuffer = float
 half = .5
-
 # Begins Loop For Choosing Which Formula To Use 
-
 while notanswered == True:
     print("1-D Kinematics Problem Solver, Made By KDB")
     print("Please Choose Which Variable You Lack Via Entering The Corresponding Number")
@@ -79,9 +77,7 @@ while notanswered == True:
             print("3. Time")
             print("4. Displacement Of X:")
             whattosolvefor = int(input("Please Type Corresponding Number Here: "))
-
             match whattosolvefor: 
-
                 case 1:
                     accel = float(input("Please Input Value Of Acceleration Here: "))
                     time = float(input("Please Input Value Of Time Here: "))
@@ -117,9 +113,7 @@ while notanswered == True:
             print("3. Time")
             print("4. Displacement Of X:")
             whattosolvefor = int(input("Please Type Corresponding Number Here: "))
-
             match whattosolvefor: 
-
                 case 1:
                     deltax = float(input("Please Input Vale Of Displacement Of X Here: "))
                     time = float(input("Please Input Value Of Time Here: "))
@@ -148,10 +142,44 @@ while notanswered == True:
                     finalanswer = (.5 * (vf + vi) * t)
                     print("Value Of Displacement Of X Is Equal To: " , finalanswer)
                     notanswered = False
-
         case 4:
-            choice4 == True
-            break
+            print("Please Choose Which Variable You Want To Solve For: ")
+            print("1. Final Velocity")
+            print("2. Initial Velocity")
+            print("3. Acceleration")
+            print("4. Displacement Of X:")
+            whattosolvefor = int(input("Please Type Corresponding Number Here: "))
+            match whattosolvefor: 
+                case 1:
+                    vi = float(input("Please Input Your Initial Velocity Here: "))
+                    deltax = float(input("Please Input Vale Of Displacement Of X Here: "))
+                    accel = float(input("Please Input Your Acceleration Here: "))
+                    finalanswerbuffer = (vi * vi) + (2 * accel * deltax)
+                    finalanswer = math.sqrt(finalanswerbuffer)
+                    print("Final Velocity Is Equal To: " , finalanswer)
+                    notanswered = False
+                case 2:
+                    deltax = float(input("Please Input Vale Of Displacement Of X Here: "))
+                    accel = float(input("Please Input Your Acceleration Here: "))
+                    vf = float(input("Please Input Your Final Velocity Here: "))
+                    finalanswerbuffer = (vf * vf) - (2 * accel * deltax)
+                    finalanswer = math.sqrt(finalanswerbuffer)
+                    print("Final Velocity Is Equal To: " , finalanswer)
+                    notanswered = False
+                case 3:
+                    deltax = float(input("Please Input Vale Of Displacement Of X Here: "))
+                    vf = float(input("Please Input Your Final Velocity Here: "))
+                    vi = float(input("Please Input Your Initial Velocity Here: "))
+                    finalanswer = (((vf * vf) - (vi * vi)) / (2 * deltax))
+                    print("Acceleration Is Equal To: " , finalanswer)
+                    notanswered = False
+                case 4:
+                    vf = float(input("Please Input Your Final Velocity Here: "))
+                    vi = float(input("Please Input Your Initial Velocity Here: "))
+                    accel = float(input("Please Input Your Acceleration Here: "))
+                    finalanswer = (((vf * vf) - (vi * vi)) / (2 * accel))
+                    print("Displacement Of X Is Equal To: " , finalanswer)
+                    notanswered = False
         case 5:
             print("Please Choose Which Variable You Want To Solve For:")
             print("1. Final Velocity")
@@ -160,9 +188,7 @@ while notanswered == True:
             print("4. Time")
             whattosolvefor = int(input("Please Type Corresponding Number Here:"))
 # Matches What Variable They Are Missing, To The Formula To Solve For Said Variable.
-
             match whattosolvefor:
-
 # Solves For Final Velocity Without Delta X 
                 case 1:
                     vi = float(input("Please Input Your Initial Velocity Here: "))
@@ -172,16 +198,13 @@ while notanswered == True:
                     print("Final Velocity Is Equal To: " , finalanswer)
                     notanswered = False
 # Solves For Initial Velocity Without Delta X 
-
                 case 2:
                     vf = float(input("Please Input Your Final Velocity Here: "))
                     accel = float(input("Please Input Your Acceleration Here: "))
                     time = float(input("Please Input Your Time Here: "))
                     finalanswer = vf / (accel * time)
                     print("Initial Velocity Is Equal To: ", finalanswer)
-                    notanswered = False
-# Solves For Acceleration Without Delta X 
-
+                    notanswered = False 
                 case 3:
                     vf = float(input("Please Input Your Final Velocity Here: "))
                     time = float(input("Please Input Time Here: "))
@@ -189,8 +212,6 @@ while notanswered == True:
                     finalanswer = (vf / time) - vi
                     print(finalanswer)
                     notanswered = False
-# Solves For Time Without Delta X 
-
                 case 4:
                     vf = float(input("Please Input Your Final Velocity Here: "))
                     accel = float(input("Please Input Your Acceleration Here: "))
@@ -200,18 +221,8 @@ while notanswered == True:
                     notanswered = False
         case _:
             print("Please just input something brother man")
-            
-    
-       
-
-
-
 #     vf = input("Please Input Your Final Velocity Here: ")
 #    vi = input("Please Input Your Initial Velocity Here")
 #    accel = input("Please Input Your Acceleration Here: ")
 #    time = input("Please Input Your Of Time Here: ")
 #    whattosolvefor = input("What Value Do "
-
-# Problem With User Input 
-# if else:
-
